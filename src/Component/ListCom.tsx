@@ -65,9 +65,9 @@ const ListCom:React.FC<filterData> = ({data, onSave}) => {
               <p>
                 Age: 
                 <input
-                    type='date'
+                    type='number'
                     name='age'
-                    value={21}
+                    value={new Date(editedData.dob).toDateString()}
                     onChange={handleChange}
                 /> 
               </p> 
