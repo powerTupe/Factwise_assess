@@ -4,11 +4,13 @@ import ListCom from './ListCom';
 
 export interface filterProps{
     customers: Customer[];
+    onChangeData: (data: Customer) => void;
 }
-const FilteredComponent: React.FC<filterProps> = ({customers}) => {
+
+const FilteredComponent: React.FC<filterProps> = ({customers, onChangeData}) => {
   return (
-    <div>
-        {customers.map((data) =>  <ListCom data={data} />)}
+    <div className='filter'>
+        {customers.map((data) =>  <ListCom key={data.id} data={data} onSave={(updatedData) => onChangeData(updatedData)} />)}
     </div>
   )
 }
